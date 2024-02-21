@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
+import { SignOut } from "../hooks/userSlice";
+import { useDispatch } from "react-redux";
 
-export const Navbar = () => {
+export const Navbar = ({ user }) => {
+	const dispatch = useDispatch();
+	const logout = async () => {
+		dispatch(SignOut());
+	};
 	return (
 		<>
 			<div className="navbar">
@@ -15,8 +21,11 @@ export const Navbar = () => {
 						<Link to="/Juegos">Juegos</Link>
 					</li>
 					<li>
-						<Link to="/Peliculas_Series">Películas y Series</Link>
+						<Link to="/Streaming">Streaming</Link>
 					</li>
+					<li>{user ? <Link to={"/Account"}>{user.username}</Link> : <Link to={"/Auth"}>Sesión</Link>}</li>
+
+					{user && <li onClick={logout}>Cerrar Sesión</li>}
 				</ul>
 			</div>
 		</>

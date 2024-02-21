@@ -22,7 +22,9 @@ $gray-color: rgba(49, 49, 49, 0.71);
 		transform: translateX(-100%);
 	}
 }
-
+.Toasify {
+	z-index: 9999 !important;
+}
 @keyframes lights {
 	0% {
 		color: hsl(230, 40%, 80%);
@@ -67,7 +69,7 @@ $gray-color: rgba(49, 49, 49, 0.71);
 .navbar {
 	background-color: rgba(251, 251, 253, 0.5);
 	backdrop-filter: blur(14px);
-	height: 44px;
+	height: 34px;
 	width: 100%;
 	top: 0;
 	position: fixed;
@@ -96,7 +98,7 @@ $gray-color: rgba(49, 49, 49, 0.71);
 
 .inicio {
 	position: relative;
-	z-index: 1;
+	background: radial-gradient(#8a42ef 5%, #cf33cc 2%, transparent);
 	.main {
 		min-height: 90vh;
 		display: flex;
@@ -119,7 +121,6 @@ $gray-color: rgba(49, 49, 49, 0.71);
 	}
 	.second {
 		position: relative;
-		z-index: 2;
 		height: 20vh;
 		display: flex;
 		align-items: center;
@@ -145,6 +146,7 @@ $gray-color: rgba(49, 49, 49, 0.71);
 				align-items: center;
 				color: $main-color;
 				transition: all 0.3s;
+				background-color: $white-color;
 				.icon {
 					width: auto;
 					height: 80px;
@@ -162,10 +164,9 @@ $gray-color: rgba(49, 49, 49, 0.71);
 	.third {
 		overflow: hidden;
 		position: relative;
-		z-index: 1;
 		min-height: 50vh;
 		padding: 100px 0;
-		color: $main-color;
+		color: $white-color;
 		text-align: center;
 		h1 {
 			margin: 40px 0;
@@ -208,7 +209,7 @@ $gray-color: rgba(49, 49, 49, 0.71);
 			background: $green-color;
 			width: 50%;
 			position: absolute;
-			height: 100%;
+			height: 111%;
 			z-index: 4;
 			padding-left: 230px;
 			display: flex;
@@ -237,54 +238,6 @@ $gray-color: rgba(49, 49, 49, 0.71);
 			background-size: cover;
 			background-position: left;
 			transform-origin: 20% 0%;
-		}
-	}
-	.fifth {
-		min-height: 40vh;
-		padding-top: 60px;
-		display: flex;
-		justify-content: space-between;
-		flex-direction: column;
-		background-color: $white-color;
-		width: 100%;
-		position: relative;
-		z-index: 2;
-		color: $main-color;
-		text-align: center;
-		.cards {
-			display: flex;
-			align-items: center;
-			justify-content: space-evenly;
-			padding: 50px 0;
-			.card {
-				overflow: hidden;
-				height: 500px;
-				width: 350px;
-				border-radius: 16px;
-				background-position: center;
-				background-size: cover;
-				display: flex;
-				align-items: flex-end;
-				justify-content: center;
-				transition: all 0.3s;
-				.title {
-					transition: all 0.5s;
-					justify-content: center;
-					align-items: flex-end;
-					height: 0%;
-					background: linear-gradient(0deg, $dark-orange-color, transparent);
-					width: 100%;
-					color: transparent;
-				}
-			}
-			.card:hover {
-				scale: 1.07;
-				.title {
-					height: 50% !important;
-					display: flex;
-					color: #ffffff;
-				}
-			}
 		}
 	}
 }
@@ -422,6 +375,210 @@ $gray-color: rgba(49, 49, 49, 0.71);
 			.text {
 				height: 50%;
 				display: flex !important;
+			}
+		}
+	}
+}
+.sign {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	padding-top: 90px;
+	.float {
+		background-color: $white-color;
+		-webkit-box-shadow: 17px 20px 40px rgba(0, 0, 0, 0.21);
+		box-shadow: 17px 20px 40px rgba(0, 0, 0, 0.21);
+		padding: 50px;
+		border-radius: 23px;
+	}
+	form {
+		width: 500px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		flex-wrap: nowrap;
+
+		input {
+			width: 500px;
+			padding: 20px 10px;
+			border-radius: 16px;
+			border: solid $main-color 1px;
+			margin: 10px 0;
+			background: transparent;
+		}
+	}
+	.button {
+		background-color: #00712f;
+		width: 520px;
+		border: none;
+		color: $white-color;
+		border-radius: 16px;
+		margin: 10px 0;
+		padding: 20px 10px;
+		transition: all 0.3s;
+	}
+	.button:hover {
+		scale: 1.05;
+	}
+}
+
+.main-account {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.account {
+		padding-top: 50px;
+		width: 90%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex-direction: row;
+		.left {
+			width: 30%;
+			position: fixed;
+			top: 10%;
+			transform-origin: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			flex-wrap: nowrap;
+		}
+		.right {
+			width: 100%;
+			right: 0;
+			position: static;
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			flex-direction: column;
+			.form {
+				width: 60%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+			}
+		}
+		p {
+			text-align: center;
+		}
+		.button {
+			width: 150px;
+			padding: 10px;
+			background-color: $coffee-color;
+			border: none;
+			margin: 0px 10px;
+			border-radius: 8px;
+			color: $white-color;
+		}
+		.input {
+			height: 30px;
+			width: 200px;
+			border: none;
+			margin: 10px 0;
+			border-radius: 8px;
+		}
+	}
+}
+
+.item-page {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 100%;
+	width: 100%;
+	min-height: 100vh;
+	position: fixed;
+	z-index: -1;
+	body & {
+		overflow: hidden;
+	}
+	.right {
+		height: 100%;
+		width: 50%;
+		position: fixed;
+		background-repeat: no-repeat;
+		background-position: right;
+		background-size: cover;
+		right: 0;
+		z-index: 0;
+	}
+	.left {
+		transform: scaleX(1) scaleY(1) scaleZ(1) skewX(-10deg);
+		transform-origin: 20% 130%;
+		// background: #0bc430;
+		background: linear-gradient(90deg, #000000, $dark-green-color 80%, transparent);
+		width: 60%;
+		position: relative;
+		height: 100%;
+		z-index: 4;
+		left: -300px;
+		padding-left: 250px;
+		padding-top: 230px;
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		color: #ffffff;
+		.title {
+			color: $white-color;
+			text-transform: uppercase;
+			font-size: 60px;
+			margin: 0;
+		}
+		p {
+			max-width: 500px;
+		}
+		.categoria,
+		h4 {
+			text-transform: capitalize;
+		}
+		.platform {
+			padding: 10px;
+			border-radius: 8px;
+			border: none;
+			margin: 10px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			transition: all 0.3s;
+			svg {
+				margin-right: 8px;
+			}
+			font-size: 20px;
+		}
+		.platform:hover {
+			scale: 1.05;
+			color: #ffffff;
+		}
+		.steam:hover {
+			background-color: #171a21;
+		}
+		.xbox:hover {
+			background-color: #107c10;
+		}
+		.ps:hover {
+			background-color: #003087;
+		}
+		.nintendo:hover {
+			background-color: #e60012;
+		}
+		.send_form {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			input {
+				padding: 10px;
+				border: none;
+				margin: 10px;
+				border-radius: 8px;
 			}
 		}
 	}

@@ -96,35 +96,6 @@ export const Inicio = () => {
 					-Otto Octavius
 				</div>
 			</div>
-			<div className="fifth">
-				<h1>Estrenos que se convertirán en tus favoritos</h1>
-				<div className="cards">
-					<div
-						className="card"
-						style={{ backgroundImage: `url(${dc_1})` }}
-					>
-						<div className="title">
-							<h2>Películas</h2>
-						</div>
-					</div>
-					<div
-						className="card"
-						style={{ backgroundImage: `url(${dc_2})` }}
-					>
-						<div className="title">
-							<h2>Series</h2>
-						</div>
-					</div>
-					<div
-						className="card"
-						style={{ backgroundImage: `url(${dc_3})` }}
-					>
-						<div className="title">
-							<h2>Juegos</h2>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	);
 };
