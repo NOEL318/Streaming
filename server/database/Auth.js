@@ -26,6 +26,5 @@ module.exports = {
 	Avatar: async function (_id, avatar) {
 		console.log(_id);
 		const res = await mongodb.users.findOneAndUpdate({ _id: new ObjectId(_id) }, { $set: { avatar } });
-		console.log(res, "aaaaaeeeeeiiiooouu");
 	},
 };
