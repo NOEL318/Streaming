@@ -1,6 +1,7 @@
 import axios from "axios";
 import * as jose from "jose";
 import { url } from "./hooksConfig";
+import { main } from "./useOpenAi";
 
 export const signup = async ({ username, email, password }) => {
 	const res = await axios.post(`${url}/api/signup`, { username, email, password });
@@ -36,15 +37,17 @@ export const signin = async ({ email, password }) => {
 	}
 };
 
-export const setAvatar = async (_id, avatar) => {
+export const setAvatar = async (_id, base64Image) => {
+	var x = await main(base64Image);
+	console.log(x, "xxxxx");
+	var avatar = x.data.data[0].url;
 	const res = await axios.post(`${url}/api/setavatar`, { _id, avatar });
-	const json = await res.data;
 	if (res.status == 200 && res.data.status == 200) {
-		console.log("asas", json);
+		window.location.reload();
 	} else {
 		var { error, token, status } = res.data;
 		if (error || (status != 200 && token == null)) {
-			window.alert(error);
+			window.location.reload();
 		}
 	}
 };
